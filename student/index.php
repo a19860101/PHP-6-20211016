@@ -70,6 +70,11 @@
                 <td><?php echo $student['gender']; ?></td>
                 <td><?php echo $student['edu']; ?></td>
                 <td><?php echo $student['skill']; ?></td>
+                <td>
+                    <form action="delete.php" method="post">
+                        <input type="button" value="刪除" onclick="return confirm('確認刪除?')">
+                    </form>
+                </td>
             </tr>
         <?php } ?> 
         <?php
