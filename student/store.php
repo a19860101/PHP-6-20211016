@@ -46,5 +46,8 @@
     $stmt = $db->prepare($sql);
     $stmt->bind_param('ssssss',$name,$mail,$phone,$edu,$gender,$skill);
     $stmt->execute();
-    
-    header('location:index.php');
+
+    // header('location:index.php');
+    // echo '三秒後跳轉';
+    echo '<script>alert("學員資料新增成功")</script>';
+    header('refresh:0;url=index.php');
