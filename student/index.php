@@ -5,8 +5,10 @@
     // require_once('db.php');
 
     $sql = 'SELECT * FROM students';
+
+    //方法一
     // $result = mysqli_query($db,'SELECT * FROM students');
-    $result = mysqli_query($db,$sql);
+    // $result = mysqli_query($db,$sql);
     
     // $data = array();
     
@@ -15,15 +17,18 @@
     //     $data[] = $row;
     // }
 
-    // foreach($data as $student){
-    //     echo $student['name'];
-    // }
+    // $data = mysqli_fetch_all($result,MYSQLI_ASSOC);
 
-    $data = mysqli_fetch_all($result,MYSQLI_ASSOC);
-    // foreach($data as $student){
-    //     echo $student['name'];
+    // 方法二
+    
+    // $result = $db->query($sql);
+    // $data = array();
+    // while($row = $result->fetch_assoc()){
+    //     $data[] = $row;
     // }
-    // print_r($data);
+    // $data = $result->fetch_all(MYSQLI_ASSOC);
+
+    $data = $db->query($sql)->fetch_all(MYSQLI_ASSOC);
 ?>
 <!DOCTYPE html>
 <html lang="en">
