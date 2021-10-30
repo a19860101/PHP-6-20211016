@@ -26,6 +26,7 @@
     // while($row = $result->fetch_assoc()){
     //     $data[] = $row;
     // }
+
     // $data = $result->fetch_all(MYSQLI_ASSOC);
 
     $data = $db->query($sql)->fetch_all(MYSQLI_ASSOC);
@@ -49,6 +50,7 @@
 </head>
 <body>
     <h1>學員資料</h1>
+    <a href="create.php">新增學員資料</a>
     <table>
         <tr>
             <th>#</th>

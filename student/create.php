@@ -47,6 +47,8 @@
             <label for="">App開發</label>
         </div>
         <input type="submit" value="送出">
+        <!-- <input type="button" value="取消" onclick="history.back()"> -->
+        <input type="button" value="取消" onclick="location.href='index.php'">
     </form>
 </body>
 </html>
