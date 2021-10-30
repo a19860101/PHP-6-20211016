@@ -30,6 +30,13 @@
                 <option value="研究所以上">研究所以上</option>
             </select>
         </div>
+        <div>
+            <label for="">性別</label>
+            <input type="radio" name="gender" value="男">
+            <label for="">男</label>
+            <input type="radio" name="gender" value="女">
+            <label for="">女</label>
+        </div>
         <input type="submit" value="送出">
     </form>
 </body>

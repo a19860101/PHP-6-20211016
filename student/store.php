@@ -16,3 +16,5 @@
     echo $mail;
     echo "<br>";
     echo $edu;
+    echo "<br>";
+    echo $gender;
