@@ -8,10 +8,16 @@
     // $result = mysqli_query($db,'SELECT * FROM students');
     $result = mysqli_query($db,$sql);
     
-    $row = mysqli_fetch_assoc($result);
+    $data = array();
+    
+    while($row = mysqli_fetch_assoc($result)){
+        // echo $row['name'];
+        $data[] = $row;
+    }
 
-    // print_r($row);
-    echo $row['name'];
+    foreach($data as $student){
+        echo $student['name'];
+    }
 ?>
 <!DOCTYPE html>
 <html lang="en">
