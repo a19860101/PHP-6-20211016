@@ -18,3 +18,6 @@
     echo $edu;
     echo "<br>";
     echo $gender;
+    echo "<br>";
+    // print_r($skill);
+    echo implode(",",$skill);
