@@ -1,7 +1,21 @@
 <?php
+    include('db.php');
     extract($_GET);
 
-    echo $id;
+    //方法一
+    // $sql = 'SELECT * FROM students WHERE id = '.$id;
+    // $result = mysqli_query($db,$sql);
+    // $student = mysqli_fetch_assoc($result);
+
+    //方法二
+    $sql = 'SELECT * FROM students WHERE id = ?';
+    $stmt = $db->prepare($sql);
+    $stmt->bind_param('i',$id);
+    $stmt->execute();
+
+    $result = $stmt->get_result();
+    $student = $result->fetch_assoc();
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -15,15 +29,15 @@
     <form action="store.php" method="post">
         <div>
             <label for="">姓名</label>
-            <input type="text" name="name">
+            <input type="text" name="name" value="<?php echo $student['name'];?>">
         </div>
         <div>
             <label for="">電話</label>
-            <input type="text" name="phone">
+            <input type="text" name="phone" value="<?php echo $student['phone'];?>">
         </div>
         <div>
             <label for="">Mail</label>
-            <input type="text" name="mail">
+            <input type="text" name="mail" value="<?php echo $student['mail'];?>">
         </div>
         <div>
             <label for="">學歷</label>
