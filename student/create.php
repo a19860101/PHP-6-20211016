@@ -20,6 +20,7 @@
             <label for="">Mail</label>
             <input type="text" name="mail">
         </div>
+        <input type="submit" value="送出">
     </form>
 </body>
 </html>
