@@ -70,11 +70,14 @@
                 <td><?php echo $student['gender']; ?></td>
                 <td><?php echo $student['edu']; ?></td>
                 <td><?php echo $student['skill']; ?></td>
-                <td>
+                <td colspan='2'>
                     <form action="delete.php" method="post">
                         <input type="hidden" name="id" value="<?php echo $student['id']; ?>">
                         <input type="submit" value="刪除" onclick="return confirm('確認刪除?')">
                     </form>
+                </td>
+                <td>
+                    <a href="edit.php?id=<?php echo $student['id']; ?>">編輯資料</a>
                 </td>
             </tr>
         <?php } ?> 
