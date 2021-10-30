@@ -23,12 +23,28 @@
     // echo implode(",",$skill);
 
     //方法一
+    // include('db.php');
+    // extract($_POST);
+
+    // $skill = implode(',',$skill);
+    // $sql = "INSERT INTO students(name,mail,phone,edu,gender,skill)
+    //         VALUES('$name','$mail','$phone','$edu','$gender','$skill')";
+    // mysqli_query($db,$sql);
+
+
+
+    //方法二
     include('db.php');
     extract($_POST);
-
     $skill = implode(',',$skill);
-    $sql = "INSERT INTO students(name,mail,phone,edu,gender,skill)
-            VALUES('$name','$mail','$phone','$edu','$gender','$skill')";
-    mysqli_query($db,$sql);
+    // $sql = "INSERT INTO students(name,mail,phone,edu,gender,skill)
+    //         VALUES('$name','$mail','$phone','$edu','$gender','$skill')";
+    // $db->query($sql);
 
+    $sql = "INSERT INTO students(name,mail,phone,edu,gender,skill)VALUES(?,?,?,?,?,?)";
+    //預備陳述式
+    $stmt = $db->prepare($sql);
+    $stmt->bind_param('ssssss',$name,$mail,$phone,$edu,$gender,$skill);
+    $stmt->execute();
+    
     header('location:index.php');
