@@ -41,12 +41,19 @@
         </div>
         <div>
             <label for="">學歷</label>
+            <!-- <select name="edu" id="">
+                <option value="國小" <?php if($student['edu']=='國小'){echo 'selected';}?>>國小</option>
+                <option value="國中" <?php if($student['edu']=='國中'){echo 'selected';}?>>國中</option>
+                <option value="高中職" <?php if($student['edu']=='高中職'){echo 'selected';}?>>高中職</option>
+                <option value="大專院校" <?php if($student['edu']=='大專院校'){echo 'selected';}?>>大專院校</option>
+                <option value="研究所以上" <?php if($student['edu']=='研究所以上'){echo 'selected';}?>>研究所以上</option>
+            </select> -->
             <select name="edu" id="">
-                <option value="國小">國小</option>
-                <option value="國中">國中</option>
-                <option value="高中職">高中職</option>
-                <option value="大專院校">大專院校</option>
-                <option value="研究所以上">研究所以上</option>
+                <option value="國小" <?php echo $student['edu'] == '國小' ? 'selected':'';?>>國小</option>
+                <option value="國中" <?php echo $student['edu'] == '國中' ? 'selected':'';?>>國中</option>
+                <option value="高中職" <?php echo $student['edu'] == '高中職' ? 'selected':'';?>>高中職</option>
+                <option value="大專院校" <?php echo $student['edu'] == '大專院校' ? 'selected':'';?>>大專院校</option>
+                <option value="研究所以上" <?php echo $student['edu'] == '研究所以上' ? 'selected':'';?>>研究所以上</option>
             </select>
         </div>
         <div>
