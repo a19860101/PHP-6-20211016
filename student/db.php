@@ -10,7 +10,7 @@
     $db = mysqli_connect($db_host,$db_user,$db_pw,$db_name)or die('資料庫錯誤!');
 
     mysqli_query($db,'SET NAMES utf8');
-    echo '資料庫連線成功';
+    // echo '資料庫連線成功';
 
     //方法二
 
