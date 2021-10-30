@@ -14,3 +14,5 @@
     echo $phone;
     echo "<br>";
     echo $mail;
+    echo "<br>";
+    echo $edu;
