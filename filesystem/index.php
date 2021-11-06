@@ -13,6 +13,7 @@
         </div>
         <input type="submit" value="上傳">
     </form>
-    <a href="list.php">所有圖片</a>
+    <a href="gallery.php">所有圖片</a>
+    <a href="list.php">列表</a>
 </body>
 </html>
