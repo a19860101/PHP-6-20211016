@@ -11,15 +11,31 @@
 </head>
 <body>
     <form action="sessionStore.php" method="post">
-        <label for="">帳號</label>
-        <input type="text" name="user">
+        <div>
+            <label for="">帳號</label>
+            <input type="text" name="user">
+        </div>
+        <div>
+            <label for="">密碼</label>
+            <input type="password" name="pw">
+        </div>
+        <div>
+            <label for="">Mail</label>
+            <input type="text" name="mail">
+        </div>
         <input type="submit" value="送出">
     </form>
-    <a href="sessionRemove.php">移除session</a>
+    <div>
+        <a href="sessionRemove.php">移除session</a>
+    </div>
     <?php
         // print_r($_SESSION);
         if($_SESSION){
-            echo $_SESSION['USER'];
+            echo '帳號:'.$_SESSION['AUTH']['user'];
+            echo '<br>';
+            echo '密碼:'.$_SESSION['AUTH']['pw'];
+            echo '<br>';
+            echo 'Mail:'.$_SESSION['AUTH']['mail'];
         }else{
             echo '目前尚無SESSION';
         }
