@@ -9,4 +9,20 @@
     //dsn = data source name
     // $dsn = 'mysql:host='.$db_host.';dbname='.$db_name.';charset='.$db_charset;
 
+    //例外處理
+    try {
+
     $pdo = new PDO($dsn,$db_user,$db_pw);
+
+        // $pdo->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_SILENT);
+        //不主動報錯(預設)
+
+        // $pdo->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_WARNING);
+        //主動報錯
+
+        // $pdo->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
+        //主動例外
+    }catch(PDOException $e){
+        // print_r($e);
+        echo $e->getMessage();
+    }
