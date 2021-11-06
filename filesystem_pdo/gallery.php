@@ -1,8 +1,13 @@
 <?php
-    if(isset($_POST['delete'])){
-        // echo $_POST['img'];
-        unlink( $_POST['img']);
-    }
+    // if(isset($_POST['delete'])){
+    //     // echo $_POST['img'];
+    //     unlink( $_POST['img']);
+    // }
+    include('../pdo.php');
+    $sql = 'SELECT * FROM galleries';
+    $stmt = $pdo->prepare($sql);
+    $stmt->execute();
+    $imgs = $stmt->fetchAll();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -21,6 +26,8 @@
         .container {
             display: grid;
             grid-template-columns: repeat(auto-fit,minmax(200px, 1fr));
+            max-width:1000px;
+            margin: auto;
         }
         .box {
             position: relative;
@@ -42,12 +49,10 @@
     <div class="container">
 
         <?php
-        $imgs = glob('images/*');
-        // print_r($imgs);
         foreach($imgs as $img){
         ?>
         <div class="box">
-            <img src="<?php echo $img;?>" alt="">
+            <img src="images/<?php echo $img['name'];?>" alt="">
             <form action="" method="post">
                 <input type="hidden" name="img" value="<?php echo $img; ?>">
                 <input type="submit" value="刪除" name="delete" onclick="return confirm('確認刪除?')">

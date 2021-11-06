@@ -1,3 +1,10 @@
+<?php
+    include('../pdo.php');
+    $sql = 'SELECT * FROM galleries';
+    $stmt = $pdo->prepare($sql);
+    $stmt->execute();
+    $imgs = $stmt->fetchAll();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -26,17 +33,19 @@
     </div>
     <table>
         <tr>
-            <th>檔案名稱</th>
+            <th>#</th>
+            <th>圖片名稱</th>
+            <th>檔名</th>
             <th>動作</th>
         </tr>
    
         <?php
-        $imgs = glob('images/*');
-        // print_r($imgs);
         foreach($imgs as $img){
         ?>
         <tr>
-            <td><?php echo $img; ?></td>
+            <td><?php echo $img['id'];?></td>
+            <td><?php echo $img['title']; ?></td>
+            <td><?php echo $img['name']; ?></td>
             <td>
                 <form action="" method="post">
                     <input type="hidden" name="img" value="<?php echo $img; ?>">
