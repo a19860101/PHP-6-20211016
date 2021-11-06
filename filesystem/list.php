@@ -1,3 +1,8 @@
+<?php
+    if(isset($_POST['delete'])){
+        echo $_POST['img'];
+    }
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -16,6 +21,15 @@
             display: grid;
             grid-template-columns: repeat(auto-fit,minmax(200px, 1fr));
         }
+        .box {
+            position: relative;
+        }
+        .box form {
+            position: absolute;
+            /* background-color: #f00; */
+            bottom: 10px;
+            right: 10px;
+        }
     </style>
 </head>
 <body>
@@ -31,6 +45,10 @@
         ?>
         <div class="box">
             <img src="<?php echo $img;?>" alt="">
+            <form action="" method="post">
+                <input type="hidden" name="img" value="<?php echo $img; ?>">
+                <input type="submit" value="刪除" name="delete" onclick="return confirm('確認刪除?')">
+            </form>
         </div>
         <?php } ?>
     </div>
