@@ -44,6 +44,17 @@
             bottom: 10px;
             right: 10px;
         }
+        .box a {
+            display: inline-block;
+            background-color: #fff;
+            color: #222;
+            position: absolute;
+            bottom: 10px;
+            left: 10px;
+            text-decoration: none;
+            font-size: 14px;
+            padding: 3px;
+        }
     </style>
 </head>
 <body>
@@ -64,6 +75,7 @@
                 <input type="hidden" name="name" value="<?php echo $img['name']; ?>">
                 <input type="submit" value="刪除" name="delete" onclick="return confirm('確認刪除?')">
             </form>
+            <a href="edit.php?id=<?php echo $img['id'];?>">編輯</a>
         </div>
         <?php } ?>
     </div>
