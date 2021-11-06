@@ -39,9 +39,9 @@
     //     // var_dump($pdo->errorInfo());
     // }
 
-    try {
-        $sql = 'SELECT * FROM test';
-        $result = $pdo -> exec($sql);
-    }catch(PDOException $e){
-        echo $e->getMessage();
-    }
+    // try {
+    //     $sql = 'SELECT * FROM test';
+    //     $result = $pdo -> exec($sql);
+    // }catch(PDOException $e){
+    //     echo $e->getMessage();
+    // }
