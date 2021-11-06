@@ -1,13 +1,19 @@
 <?php
-    // if(isset($_POST['delete'])){
-    //     // echo $_POST['img'];
-    //     unlink( $_POST['img']);
-    // }
     include('../pdo.php');
     $sql = 'SELECT * FROM galleries';
     $stmt = $pdo->prepare($sql);
     $stmt->execute();
     $imgs = $stmt->fetchAll();
+
+    if(isset($_POST['delete'])){
+        extract($_POST);
+        $sqlDel = 'DELETE FROM galleries WHERE id = ?';
+        $stmt = $pdo->prepare($sqlDel);
+        unlink('images/'.$name);
+        $stmt->execute([$id]);
+        header('Location:gallery.php');
+
+    }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -54,7 +60,8 @@
         <div class="box">
             <img src="images/<?php echo $img['name'];?>" alt="">
             <form action="" method="post">
-                <input type="hidden" name="img" value="<?php echo $img; ?>">
+                <input type="hidden" name="id" value="<?php echo $img['id'];?>">
+                <input type="hidden" name="name" value="<?php echo $img['name']; ?>">
                 <input type="submit" value="刪除" name="delete" onclick="return confirm('確認刪除?')">
             </form>
         </div>
