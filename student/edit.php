@@ -26,7 +26,7 @@
     <title>Document</title>
 </head>
 <body>
-    <form action="store.php" method="post">
+    <form action="update.php" method="post">
         <div>
             <label for="">姓名</label>
             <input type="text" name="name" value="<?php echo $student['name'];?>">
@@ -75,6 +75,7 @@
             <input type="checkbox" name="skill[]" value="App開發" <?php echo in_array('App開發',$skill)?'checked':'';?>>
             <label for="">App開發</label>
         </div>
+        <input type="hidden" name="id" value="<?php echo $student['id'];?>">
         <input type="submit" value="送出">
         <!-- <input type="button" value="取消" onclick="history.back()"> -->
         <input type="button" value="取消" onclick="location.href='index.php'">
