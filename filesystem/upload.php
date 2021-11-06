@@ -13,6 +13,12 @@
     $imgName = md5(time()).'.'.$ext;
     // $imgName = md5(uniqid()).'.'.$ext;
 
+    if($ext != 'jpg' && $ext != 'jpeg' && $ext != 'png' && $ext != 'gif'&& $ext != 'webp'&& $ext != 'svg'){
+        echo '<script>alert("請上傳正確的圖片格式!")</script>';
+        header('refresh:0;url=index.php');
+        return;
+    }
+
     // echo $imgName;
     $target = 'images/'.$imgName;
 
