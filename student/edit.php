@@ -64,12 +64,15 @@
             <label for="">女</label>
         </div>
         <div>
+            <?php
+                $skill = explode(',',$student['skill']);
+            ?>
             <label for="">專長</label>
-            <input type="checkbox" name="skill[]" value="平面設計">
+            <input type="checkbox" name="skill[]" value="平面設計" <?php echo in_array('平面設計',$skill)?'checked':'';?>>
             <label for="">平面設計</label>
-            <input type="checkbox" name="skill[]" value="網頁設計">
+            <input type="checkbox" name="skill[]" value="網頁設計" <?php echo in_array('網頁設計',$skill)?'checked':'';?>>
             <label for="">網頁設計</label>
-            <input type="checkbox" name="skill[]" value="App開發">
+            <input type="checkbox" name="skill[]" value="App開發" <?php echo in_array('App開發',$skill)?'checked':'';?>>
             <label for="">App開發</label>
         </div>
         <input type="submit" value="送出">
