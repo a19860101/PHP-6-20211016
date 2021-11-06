@@ -1,7 +1,5 @@
 <?php
     session_start();
-
-    unset($_SESSION['AUTH']);
-    // session_destroy();
+    $_SESSION['TEST'] = $_REQUEST;
 
     header('location:index.php');

@@ -25,17 +25,23 @@
         </div>
         <input type="submit" value="送出">
     </form>
+    <form action="sessionStore2.php" method="post">
+        <input type="text" name="name">
+        <input type="submit" value="送出">
+    </form>
     <div>
         <a href="sessionRemove.php">移除session</a>
     </div>
     <?php
         // print_r($_SESSION);
         if($_SESSION){
-            echo '帳號:'.$_SESSION['AUTH']['user'];
-            echo '<br>';
-            echo '密碼:'.$_SESSION['AUTH']['pw'];
-            echo '<br>';
-            echo 'Mail:'.$_SESSION['AUTH']['mail'];
+            // echo '帳號:'.$_SESSION['AUTH']['user'];
+            // echo '<br>';
+            // echo '密碼:'.$_SESSION['AUTH']['pw'];
+            // echo '<br>';
+            // echo 'Mail:'.$_SESSION['AUTH']['mail'];
+
+            print_r($_SESSION);
         }else{
             echo '目前尚無SESSION';
         }
