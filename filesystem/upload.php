@@ -9,7 +9,12 @@
         mkdir('images');
     }
     
-    $target = 'images/'.$name;
+    $ext = pathinfo($name,PATHINFO_EXTENSION);
+    $imgName = md5(time()).'.'.$ext;
+    // $imgName = md5(uniqid()).'.'.$ext;
+
+    // echo $imgName;
+    $target = 'images/'.$imgName;
 
     
     if($error == 0){
