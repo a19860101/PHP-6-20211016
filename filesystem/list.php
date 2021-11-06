@@ -7,7 +7,14 @@
     <title>Document</title>
     <style>
         img {
-            width: 200px;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center
+        }
+        .container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit,minmax(200px, 1fr));
         }
     </style>
 </head>
@@ -15,12 +22,17 @@
     <div>
         <a href="index.php">上傳圖片</a>
     </div>
-    <?php
+    <div class="container">
+
+        <?php
         $imgs = glob('images/*');
         // print_r($imgs);
         foreach($imgs as $img){
-    ?>
-    <img src="<?php echo $img;?>" alt="">
-    <?php } ?>
+        ?>
+        <div class="box">
+            <img src="<?php echo $img;?>" alt="">
+        </div>
+        <?php } ?>
+    </div>
 </body>
 </html>
