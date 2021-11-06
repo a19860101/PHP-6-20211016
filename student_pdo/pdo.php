@@ -17,10 +17,10 @@
         // $pdo->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_SILENT);
         //不主動報錯(預設)
 
-        $pdo->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_WARNING);
+        // $pdo->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_WARNING);
         //主動報錯
 
-        // $pdo->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
+        $pdo->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
         //主動例外
 
     }catch(PDOException $e){
@@ -29,12 +29,19 @@
     }
 
 
-    $sql = 'SELECT * FROM test';
-    $result = $pdo -> exec($sql); //mysqli_query , $stmt->execute();
+    // $sql = 'SELECT * FROM test';
+    // $result = $pdo -> exec($sql); //mysqli_query , $stmt->execute();
 
-    if($result){
-        echo 'success';
-    }else{
-        echo $pdo->errorCode();
-        // var_dump($pdo->errorInfo());
+    // if($result){
+    //     echo 'success';
+    // }else{
+    //     echo $pdo->errorCode();
+    //     // var_dump($pdo->errorInfo());
+    // }
+
+    try {
+        $sql = 'SELECT * FROM test';
+        $result = $pdo -> exec($sql);
+    }catch(PDOException $e){
+        echo $e->getMessage();
     }
