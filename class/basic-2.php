@@ -1,5 +1,12 @@
 <?php
     class Role {
+
+        //建構子
+        function __construct(){
+            echo '開啟地圖';
+        }
+
+
         //屬性
         public $name;
         public $skill;
@@ -35,16 +42,19 @@
 
     }
 
-    $user1 = new Role;
+    // $user1 = new Role;
     // echo $user1->damage;
     // echo $user1->magic;
     // echo $user1->attack();
     // echo $user1->magicAttack();
-    $com1 = new NPC;
+    // $com1 = new NPC;
     // echo $com1->damage;
     // echo $com1->magic;
     // echo $com1->npcAttack();
     // echo $com1->npcMagicAttack();
 
-    echo Role::up('john');
+    // echo Role::up('john');
+
+    $user2 = new Role;
+    $user3 = new Role;
     
