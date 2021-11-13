@@ -4,6 +4,11 @@ class DB {
     function __construct(){
         
     }
+    function now(){
+        date_default_timezone_set('Asia/Taipei');
+        $now = date('Y-m-d H:i:s');
+        return $now;
+    }
     function connect(){
         $db_host = 'localhost';
         $db_user = 'admin';
@@ -28,6 +33,5 @@ class DB {
 
 
 
-date_default_timezone_set('Asia/Taipei');
-$now = date('Y-m-d H:i:s');
+
 
