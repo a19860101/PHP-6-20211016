@@ -4,12 +4,12 @@ class DB {
     function __construct(){
         
     }
-    function now(){
+    static function now(){
         date_default_timezone_set('Asia/Taipei');
         $now = date('Y-m-d H:i:s');
         return $now;
     }
-    function connect(){
+    static function connect(){
         $db_host = 'localhost';
         $db_user = 'admin';
         $db_pw = 'admin';

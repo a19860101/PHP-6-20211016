@@ -9,7 +9,7 @@
 <body>
     <nav>
         <div class="menu">
-            <a href="#">新增文章</a>
+            <a href="posts/create.php">新增文章</a>
             <a href="#">登入</a>
             <a href="#">登出</a>
             <a href="#">註冊</a>

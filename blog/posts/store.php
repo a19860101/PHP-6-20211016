@@ -1,9 +1,10 @@
 <?php
-    include('../pdo.php');
     include('Post.php');
 
 
-    $post = new Post;
-    $post->store($_REQUEST);
+    // $post = new Post;
+    // $post->store($_REQUEST);
+
+    Post::store($_REQUEST);
 
     header('location:../index.php');
