@@ -14,7 +14,7 @@
         </div>
         <div>
             <label for="">密碼</label>
-            <input type="password">
+            <input type="password" name="pw">
         </div>
         <input type="submit" value="登入">
     </form>
