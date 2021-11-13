@@ -8,14 +8,22 @@
     $stmt = $pdo->prepare($sql);
     $stmt->execute([$user]);
 
-    $row = $stmt->fetch();
+    $row = $stmt->fetch(PDO::FETCH_ASSOC);
+
+    print_r($row);
 
     if(!$row){
-        echo '帳號不存在';
+        echo '<script>alert("帳號不存在!");</script>';
+        header('refresh:0;url=index.php');
+        return;
     }
 
     if($row['pw'] == md5(sha1($pw))){
-        echo '成功登入';
+        $_SESSION['AUTH'] = $row;
+        echo '<script>alert("登入成功");</script>';
+        header('refresh:0;url=index.php');
+
     }else{
-        echo '帳號或密碼錯誤';
+        echo '<script>alert("帳號或密碼錯誤");</script>';
+        header('refresh:0;url=index.php');
     }
