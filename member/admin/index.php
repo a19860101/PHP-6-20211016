@@ -1,4 +1,7 @@
 <?php
+    include('../../pdo.php');
+
+    $webroot = 'http://localhost/php-6-20211016/member/';
     session_start();
 ?>
 <!DOCTYPE html>
@@ -10,6 +13,7 @@
     <title>Document</title>
 </head>
 <body>
+    <?php include('../nav.php'); ?>
     <h1>管理介面</h1>
 </body>
 </html>

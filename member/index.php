@@ -1,4 +1,7 @@
 <?php
+    include('../pdo.php');
+    //根路徑
+    $webroot = 'http://localhost/php-6-20211016/member/';
     session_start();
 ?>
 <!DOCTYPE html>
@@ -10,19 +13,6 @@
     <title>Document</title>
 </head>
 <body>
-    <nav>
-        <div class="menu">
-        <?php if(isset($_SESSION['AUTH'])){ ?>
-            <span><?php echo $_SESSION['AUTH']['user']; ?>您好!</span>
-            <a href="logout.php">登出</a>
-
-        <?php } ?>
-        
-        <?php if(!isset($_SESSION['AUTH'])){?>
-            <a href="login.php">登入</a>
-            <a href="create.php">註冊</a>
-        <?php } ?>
-        </div>
-    </nav>
+    <?php include('nav.php');?>
 </body>
 </html>
