@@ -45,3 +45,7 @@
     // }catch(PDOException $e){
     //     echo $e->getMessage();
     // }
+
+    // 設定時區
+    date_default_timezone_set('Asia/Taipei');
+    $now = date('Y-m-d H:i:s');
