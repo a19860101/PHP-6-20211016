@@ -16,6 +16,10 @@
         function magicAttack(){
             return $this->magic;
         }
+        //靜態方法
+        static function up($name){
+            return $name.'stand up!!';
+        }
     }
     class NPC extends Role {
         public $computer;
@@ -41,4 +45,6 @@
     // echo $com1->magic;
     // echo $com1->npcAttack();
     // echo $com1->npcMagicAttack();
+
+    echo Role::up('john');
     
