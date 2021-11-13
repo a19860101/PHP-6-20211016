@@ -1,19 +1,15 @@
 <?php
-    //宣告類別
 
-    class Test {
-        // 方法 -> function
-        // 屬性 -> $
+    class Role {
+        public $name;
+        public $category;
+        public $skill = [];
 
-        public $x = 0;
-        public $s = 'Hello';
     }
 
-    //呼叫類別 建立實體
-    $test = new Test;
-    // print_r($test);
+    $user_1 = new Role;
+    $user_1 -> name = '阿卡莉';
+    $user_1 -> category = '刺客';
+    $user_1 -> skill = ['無暇追擊','落擲苦無','暮光朦影','離群手裡劍','刺客印記'];
 
-    // echo $test->x;
-    // echo $test->s;
-    $test->x = 999;
-    echo $test->x;
+    print_r($user_1);
