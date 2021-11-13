@@ -5,6 +5,7 @@
         public $name;
         public $skill;
 
+
         //方法
         function attack(){
             echo 'attack';
@@ -13,6 +14,8 @@
             return $this->name.'walk';
         }
     }
+
+    // 權限  public, protected, private
 
     // $user_1 = new Role;
     // $user_1 -> name = '阿卡莉';
