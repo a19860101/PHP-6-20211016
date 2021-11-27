@@ -19,7 +19,7 @@
                 <div>建立時間:<?php echo $post['created_at'];?></div>
                 <div>最後更新時間:<?php echo $post['updated_at'];?></div>
                 <hr>
-                <a href="index.php" class="btn btn-primary">回列表</a>
+                <a href="../index.php" class="btn btn-primary">回列表</a>
                 <a href="edit.php?id=<?php echo $post['id'];?>" class="btn btn-success">編輯</a>
                 <form action="delete.php" method="post" class="d-inline-block">
                     <input type="hidden" value="<?php echo $post['id'];?>" name="id">

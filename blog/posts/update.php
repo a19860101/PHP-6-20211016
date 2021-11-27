@@ -3,4 +3,4 @@
 
     Post::update($_REQUEST);
 
-    header('location:index.php');
+    header('location:../index.php');
