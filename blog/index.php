@@ -17,7 +17,7 @@
         <div class="col-10 col-lg-8 p-3 mx-auto">
             <div class="post border shadow-sm p-3 rounded">
                 <h3><?php echo $post['title'];?></h3>
-                <div><?php echo $post['author'];?></div>
+                <div>作者:<?php echo $post['author'];?></div>
                 <div>分類:<?php echo $post['category']; ?></div>
                 <div class="my-3">
                     <?php echo $post['content'];?>
