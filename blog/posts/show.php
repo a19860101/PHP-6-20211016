@@ -2,35 +2,33 @@
     include('Post.php');
     $post = Post::show($_REQUEST);
 ?>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <nav>
-        <div class="menu">
-            <a href="create.php">新增文章</a>
-            <a href="#">登入</a>
-            <a href="#">登出</a>
-            <a href="#">註冊</a>
-        </div>
-    </nav>
+<?php
+    include('../template/header.php');
+    include('../template/nav.php');
+?>
     <div class="container">
-        <h3><?php echo $post['title'];?></h3>
-        <div><?php echo $post['author']; ?></div>
-        <div>
-            <?php echo $post['content'];?>
+        <div class="row justify-content-center">
+            <div class="col-10">
+
+                <h3 class="my-3"><?php echo $post['title'];?></h3>
+                <hr>
+                <div><?php echo $post['author']; ?></div>
+                <div class="mb-3">
+                    <?php echo $post['content'];?>
+                </div>
+                <div>建立時間:<?php echo $post['created_at'];?></div>
+                <div>最後更新時間:<?php echo $post['updated_at'];?></div>
+                <hr>
+                <a href="index.php" class="btn btn-primary">回列表</a>
+                <a href="edit.php?id=<?php echo $post['id'];?>" class="btn btn-success">編輯</a>
+                <form action="delete.php" method="post" class="d-inline-block">
+                    <input type="hidden" value="<?php echo $post['id'];?>" name="id">
+                    <input type="submit" value="刪除" onclick="return confirm('確認刪除？')" class="btn btn-danger">
+                </form>
+
+            </div>
         </div>
-        <a href="index.php">回列表</a>
-        <a href="edit.php?id=<?php echo $post['id'];?>">編輯</a>
-        <form action="delete.php" method="post">
-            <input type="hidden" value="<?php echo $post['id'];?>" name="id">
-            <input type="submit" value="刪除" onclick="return confirm('確認刪除？')">
-        </form>
     </div>
-</body>
-</html>
+<?php
+    include('../template/footer.php');
+?>
