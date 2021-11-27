@@ -9,7 +9,9 @@ class DB {
         return $now;
     }
     static function connect(){
-        session_start();
+        if(!session_id()){
+            session_start();
+        }
 
         $db_host = 'localhost';
         $db_user = 'admin';
