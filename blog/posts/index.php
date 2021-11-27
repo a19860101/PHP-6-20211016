@@ -1,7 +1,6 @@
 <?php
-    include('posts/Post.php');
+    include('Post.php');
     $posts = Post::all();
-    print_r($posts);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -14,7 +13,7 @@
 <body>
     <nav>
         <div class="menu">
-            <a href="posts/create.php">新增文章</a>
+            <a href="create.php">新增文章</a>
             <a href="#">登入</a>
             <a href="#">登出</a>
             <a href="#">註冊</a>
@@ -22,6 +21,16 @@
     </nav>
     <div class="container">
         <h2>文章列表</h2>
+        <?php foreach($posts as $post){ ?>
+        <div class="post">
+            <h3><?php echo $post['title'];?></h3>
+            <div><?php echo $post['author'];?></div>
+            <div><?php echo $post['created_at'];?></div>
+            <div>
+                <?php echo $post['content'];?>
+            </div>
+        </div>
+        <?php } ?>
     </div>
 </body>
 </html>

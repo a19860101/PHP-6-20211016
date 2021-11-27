@@ -7,4 +7,4 @@
 
     Post::store($_REQUEST);
 
-    header('location:../index.php');
+    header('location:index.php');
