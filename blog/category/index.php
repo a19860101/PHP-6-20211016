@@ -1,6 +1,8 @@
 <?php
     include('../template/header.php');
     include('../template/nav.php');
+    include('Category.php');
+    $categories = Category::all();
 ?>
 <div class="container">
     <div class="row">
@@ -10,7 +12,7 @@
         </div>
         <div class="col-8">
             <h3>新增分類</h3>
-            <form action="" method="post">
+            <form action="store.php" method="post">
                 <div class="mb-3">
                     <label for="" class="form-label">分類標題</label>
                     <input type="text" class="form-control" name="title">
@@ -20,6 +22,11 @@
         </div>
         <div class="col-4">
             <h3>分類列表</h3>
+            <ul class="list-group">
+                <?php foreach($categories as $category){ ?>
+                <li class="list-group-item"><?php echo $category['title']; ?></li>
+                <?php }?>
+            </ul>
         </div>
     </div>
 </div>

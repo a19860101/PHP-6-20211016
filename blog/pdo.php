@@ -1,5 +1,4 @@
 <?php
-
 class DB {
     function __construct(){
         session_start();
