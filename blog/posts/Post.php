@@ -2,7 +2,7 @@
     include('../pdo.php');
     class Post extends DB {
         static function all(){
-            $sql = 'SELECT * FROM posts';
+            $sql = 'SELECT * FROM posts ORDER BY id DESC';
             $stmt = DB::connect()->prepare($sql);
             $stmt -> execute();
             $data = $stmt->fetchAll();
