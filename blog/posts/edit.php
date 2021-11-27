@@ -23,11 +23,13 @@
         <div>
             <label for="">文章分類</label>
             <select name="category" id="">
-                <option value="科技">科技</option>
-                <option value="生活">生活</option>
+                <option value="科技" <?php echo $post['category'] == '科技' ? 'selected':'';?>>科技</option>
+                <option value="生活" <?php echo $post['category'] == '生活' ? 'selected':'';?>>生活</option>
             </select>
         </div>
+        <input type="hidden" value="<?php echo $post['id'];?>" name="id">
         <input type="submit" value="儲存文章">
+        <input type="button" value="取消" onclick="history.back()">
     </form>
 </body>
 </html>
