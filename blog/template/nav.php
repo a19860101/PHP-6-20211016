@@ -16,7 +16,7 @@
                     <a class="nav-link" href="<?php echo $webroot; ?>posts/create.php">新增文章</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Pricing</a>
+                    <a class="nav-link" href="<?php echo $webroot; ?>category/index.php">分類管理</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link disabled">Disabled</a>
