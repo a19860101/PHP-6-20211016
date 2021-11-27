@@ -24,7 +24,7 @@
                     <a href="#" class="nav-link">登入</a>
                 </li>
                 <li class="nav-item">
-                    <a href="#" class="nav-link">註冊</a>
+                    <a href="../auth/register.php" class="nav-link">註冊</a>
                 </li>
                 <li class="nav-item">
                     <a href="#" class="nav-link">登出</a>
