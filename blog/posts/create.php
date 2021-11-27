@@ -1,6 +1,9 @@
 <?php 
     include('../template/header.php');
     include('../template/nav.php');
+
+    include('../category/Category.php');
+    $categories = Category::all();
 ?>
 <div class="container">
     <div class="row justify-content-center">
@@ -21,8 +24,9 @@
                 <div class="mb-3">
                     <label class="form-label" for="">文章分類</label>
                     <select name="category" id="" class="form-select">
-                        <option value="科技">科技</option>
-                        <option value="生活">生活</option>
+                        <?php foreach($categories as $category){ ?>
+                            <option value="<?php echo $category['title'];?>"><?php echo $category['title'];?></option>
+                        <?php } ?>
                     </select>
                 </div>
                 <input type="submit" value="新增文章" class="btn btn-primary">
