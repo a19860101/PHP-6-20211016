@@ -3,4 +3,4 @@
 
     Auth::login($_REQUEST);
 
-    header('location:../index.php');
+    header('refresh:0;url=../index.php');

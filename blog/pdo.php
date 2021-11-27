@@ -10,6 +10,8 @@ class DB {
         return $now;
     }
     static function connect(){
+        session_start();
+
         $db_host = 'localhost';
         $db_user = 'admin';
         $db_pw = 'admin';
