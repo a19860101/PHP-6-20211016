@@ -24,4 +24,10 @@
             $stmt =DB::connect()->prepare($sql);
             $stmt->execute([$title,$content,$author,$category,$now,$now]);
         }
+        static function delete($request){
+            extract($request);
+            $sql = 'DELETE FROM posts WHERE id = ?';
+            $stmt = DB::connect()->prepare($sql);
+            $stmt->execute([$id]);
+        }
     }

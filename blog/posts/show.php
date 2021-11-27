@@ -26,6 +26,11 @@
             <?php echo $post['content'];?>
         </div>
         <a href="index.php">回列表</a>
+        <a href="edit.php?id=<?php echo $post['id'];?>">編輯</a>
+        <form action="delete.php" method="post">
+            <input type="hidden" value="<?php echo $post['id'];?>" name="id">
+            <input type="submit" value="刪除" onclick="return confirm('確認刪除？')">
+        </form>
     </div>
 </body>
 </html>
