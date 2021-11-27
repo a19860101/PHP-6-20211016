@@ -1,3 +1,7 @@
+<?php
+    include('Post.php');
+    $post = Post::show($_REQUEST);
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -15,5 +19,13 @@
             <a href="#">註冊</a>
         </div>
     </nav>
+    <div class="container">
+        <h3><?php echo $post['title'];?></h3>
+        <div><?php echo $post['author']; ?></div>
+        <div>
+            <?php echo $post['content'];?>
+        </div>
+        <a href="index.php">回列表</a>
+    </div>
 </body>
 </html>
