@@ -3,6 +3,10 @@
     include('../template/nav.php');
     include('Category.php');
     $categories = Category::all();
+    if(!isset($_SESSION['AUTH']) || $_SESSION['AUTH']['role'] != 0){
+        header('location:../index.php');
+        return;
+    }
 ?>
 <div class="container">
     <div class="row">

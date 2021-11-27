@@ -20,12 +20,14 @@
                 <div>最後更新時間:<?php echo $post['updated_at'];?></div>
                 <hr>
                 <a href="../index.php" class="btn btn-primary">回列表</a>
+                <?php if(isset($_SESSION['AUTH'])){?>
                 <?php if($post['author'] == $_SESSION['AUTH']['user']){ ?>
                 <a href="edit.php?id=<?php echo $post['id'];?>" class="btn btn-success">編輯</a>
                 <form action="delete.php" method="post" class="d-inline-block">
                     <input type="hidden" value="<?php echo $post['id'];?>" name="id">
                     <input type="submit" value="刪除" onclick="return confirm('確認刪除？')" class="btn btn-danger">
                 </form>
+                <?php } ?>
                 <?php } ?>
             </div>
         </div>

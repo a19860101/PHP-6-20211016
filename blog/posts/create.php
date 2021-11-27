@@ -4,6 +4,11 @@
 
     include('../category/Category.php');
     $categories = Category::all();
+
+    if(!isset($_SESSION['AUTH'])){
+        header('location:../index.php');
+        return;
+    }
 ?>
 <div class="container">
     <div class="row justify-content-center">
