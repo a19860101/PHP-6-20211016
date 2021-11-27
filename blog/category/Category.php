@@ -14,4 +14,10 @@
             $data = $stmt->fetchAll();
             return $data;
         }
+        static function delete($request){
+            extract($request);
+            $sql = 'DELETE FROM categories WHERE id = ?';
+            $stmt = DB::connect()->prepare($sql);
+            $stmt -> execute([$id]);
+        }
     }
