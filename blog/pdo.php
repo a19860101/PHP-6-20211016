@@ -2,7 +2,7 @@
 
 class DB {
     function __construct(){
-        
+        session_start();
     }
     static function now(){
         date_default_timezone_set('Asia/Taipei');

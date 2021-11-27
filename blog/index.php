@@ -1,6 +1,8 @@
 <?php
     include('posts/Post.php');
     $posts = Post::all();
+
+    print_r($_SESSION['AUTH']);
 ?>
 <?php
     include('template/header.php');
