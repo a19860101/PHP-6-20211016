@@ -28,7 +28,7 @@
                 </div>
                 <div class="mb-3">
                     <label class="form-label" for="">文章內容</label>
-                    <textarea name="content" id="" cols="30" rows="10" class="form-control"></textarea>
+                    <textarea name="content" id="content" cols="30" rows="10" class="form-control"></textarea>
                 </div>
                 <div class="mb-3">
                     <label class="form-label" for="">文章分類</label>
@@ -44,6 +44,14 @@
         </div>
     </div>
 </div>
+<script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+<script>
+    tinymce.init({
+        selector: '#content',
+        language: 'zh_TW',
+        height: '500px'
+    });
+</script>
 
 <?php
     include('../template/footer.php');
