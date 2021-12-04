@@ -27,7 +27,11 @@
                 <div>作者:<?php echo $post['author'];?></div>
                 <div>分類:<?php echo $post['category']; ?></div>
                 <div class="my-3">
-                    <?php echo mb_substr($post['content'],0,100);?>...
+                    <?php 
+                        $content = strip_tags($post['content']);
+                        echo mb_substr($content,0,100);
+                        
+                    ?>...
                 </div>
                 <div>建立時間:<?php echo $post['created_at'];?></div>
                 <div>最後更新時間:<?php echo $post['updated_at'];?></div>

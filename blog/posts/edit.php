@@ -20,7 +20,7 @@
                 </div>
                 <div class="mb-3">
                     <label class="form-label" for="">文章內容</label>
-                    <textarea name="content" id="" cols="30" rows="10" class="form-control"><?php echo $post['content'];?></textarea>
+                    <textarea name="content" id="content" cols="30" rows="10" class="form-control"><?php echo $post['content'];?></textarea>
                 </div>
                 <div class="mb-3">
                     <label class="form-label" for="">文章分類</label>
@@ -36,7 +36,49 @@
         </div>
     </div>
 </div>
+<script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+<script>
+    tinymce.init({
+        selector: '#content',
+        language: 'zh_TW',
+        height: '500px',
+        // plugins: 'print preview paste importcss searchreplace autolink autosave save directionality code visualblocks visualchars fullscreen image link media template codesample table charmap hr pagebreak nonbreaking anchor toc insertdatetime advlist lists wordcount imagetools textpattern noneditable help charmap quickbars emoticons',
+        // toolbar: 'undo redo | bold italic underline strikethrough | fontselect fontsizeselect formatselect | alignleft aligncenter alignright alignjustify | outdent indent |  numlist bullist | forecolor backcolor removeformat | pagebreak | charmap emoticons | fullscreen  preview save print | insertfile image media template link anchor codesample | ltr rtl',
+        plugins:'image code lists',
+        toolbar: 
+            'undo redo |  bold italic underline strikethrough | fontsizeselect formatselect '+
+            'alignleft aligncenter alignright alignjustify  |  numlist bullist '+
+            'forecolor backcolor removeformat |  image',
+        toolbar_mode: 'sliding',
+        // 檔案上傳
+        image_title: true,
+        automatic_uploads: true,
+        images_upload_url: 'postAcceptor.php',
+        file_picker_types: 'image',
+        file_picker_callback: function (cb, value, meta) {
+            var input = document.createElement('input');
+            input.setAttribute('type', 'file');
+            input.setAttribute('accept', 'image/*');
 
+            input.onchange = function () {
+                var file = this.files[0];
+
+                var reader = new FileReader();
+                reader.onload = function () {
+                    var id = 'blobid' + (new Date()).getTime();
+                    var blobCache =  tinymce.activeEditor.editorUpload.blobCache;
+                    var base64 = reader.result.split(',')[1];
+                    var blobInfo = blobCache.create(id, file, base64);
+                    blobCache.add(blobInfo);
+                    cb(blobInfo.blobUri(), { title: file.name });
+                };
+                reader.readAsDataURL(file);
+            };
+
+            input.click();
+        }
+    });
+</script>
 <?php
     include('../template/footer.php');
 ?>
