@@ -15,7 +15,14 @@
         </div>
         <?php foreach($posts as $post){ ?>
         <div class="col-10 col-lg-8 p-3 mx-auto">
-            <div class="post border shadow-sm p-3 rounded">
+            <?php 
+                if($post['cover'] == ''){
+            ?>
+            <img src="https://via.placeholder.com/1200x600/cccccc/222222?text=NO COVER" class="w-100">
+            <?php }else{ ?>
+            <img src="posts/images/<?php echo $post['cover'];?>" class="w-100">
+            <?php } ?>
+            <div class="post border shadow-sm p-3 rounded-bottom">
                 <h3><?php echo $post['title'];?></h3>
                 <div>作者:<?php echo $post['author'];?></div>
                 <div>分類:<?php echo $post['category']; ?></div>
