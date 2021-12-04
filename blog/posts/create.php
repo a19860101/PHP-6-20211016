@@ -61,6 +61,7 @@
         // 檔案上傳
         image_title: true,
         automatic_uploads: true,
+        images_upload_url: 'postAcceptor.php',
         file_picker_types: 'image',
         file_picker_callback: function (cb, value, meta) {
             var input = document.createElement('input');
