@@ -23,6 +23,10 @@
                     <input type="text" name="title" class="form-control">
                 </div>
                 <div class="mb-3">
+                    <label class="form-label" for="">封面圖片</label>
+                    <input type="file" name="cover">
+                </div>
+                <div class="mb-3">
                     <label class="form-label" for="">文章內容</label>
                     <textarea name="content" id="" cols="30" rows="10" class="form-control"></textarea>
                 </div>
