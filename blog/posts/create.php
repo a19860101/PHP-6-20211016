@@ -55,8 +55,8 @@
         plugins:'image code lists',
         toolbar: 
             'undo redo |  bold italic underline strikethrough | fontsizeselect formatselect '+
-            'alignleft aligncenter alignright alignjustify | outdent indent |  numlist bullist '+
-            'forecolor backcolor removeformat | insertfile image media template link anchor codesample ',
+            'alignleft aligncenter alignright alignjustify  |  numlist bullist '+
+            'forecolor backcolor removeformat |  image',
         toolbar_mode: 'sliding',
         // 檔案上傳
         image_title: true,
@@ -72,7 +72,7 @@
                 var file = this.files[0];
 
                 var reader = new FileReader();
-                eader.onload = function () {
+                reader.onload = function () {
                     var id = 'blobid' + (new Date()).getTime();
                     var blobCache =  tinymce.activeEditor.editorUpload.blobCache;
                     var base64 = reader.result.split(',')[1];
