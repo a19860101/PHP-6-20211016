@@ -24,9 +24,9 @@
             $data = $stmt->fetch();
             return $data;
         }
-        static function store($request){
+        static function store($request,$file){
             extract($request);
-            $cover = Post::upload();
+            $cover = Post::upload($file['cover']);
             $sql = 'INSERT INTO posts(title,cover,content,author,category,created_at,updated_at)VALUES(?,?,?,?,?,?,?)';
             $now = DB::now();
             $stmt =DB::connect()->prepare($sql);
@@ -52,8 +52,8 @@
             $stmt = DB::connect()->prepare($sql);
             $stmt->execute([$id]);
         }
-        static function upload(){
-            extract($_FILES['cover']);
+        static function upload($file){
+            extract($file);
 
             if(!is_dir('images')){
                 mkdir('images');
