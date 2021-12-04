@@ -54,7 +54,10 @@
         }
         static function upload($file){
             extract($file);
-
+            if($name == ''){
+                $imgName = '';
+                return $imgName;
+            }
             if(!is_dir('images')){
                 mkdir('images');
             }
