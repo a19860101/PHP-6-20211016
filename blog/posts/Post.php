@@ -26,11 +26,12 @@
         }
         static function store($request){
             extract($request);
-            $sql = 'INSERT INTO posts(title,content,author,category,created_at,updated_at)VALUES(?,?,?,?,?,?)';
+            $cover = Post::upload();
+            $sql = 'INSERT INTO posts(title,cover,content,author,category,created_at,updated_at)VALUES(?,?,?,?,?,?,?)';
             $now = DB::now();
             $stmt =DB::connect()->prepare($sql);
             $author = $_SESSION['AUTH']['user'];
-            $stmt->execute([$title,$content,$author,$category,$now,$now]);
+            $stmt->execute([$title,$cover,$content,$author,$category,$now,$now]);
         }
         static function update($request){
             extract($request);
@@ -52,9 +53,8 @@
             $stmt->execute([$id]);
         }
         static function upload(){
-            extract($_FILES['img']);
+            extract($_FILES['cover']);
 
-    
             if(!is_dir('images')){
                 mkdir('images');
             }
@@ -70,15 +70,9 @@
         
             $target = 'images/'.$imgName;
         
-            $sql = 'INSERT INTO galleries(title,name,created_at)VALUES(?,?,NOW())';
-            $stmt = $pdo->prepare($sql);
-        
-            
             if($error == 0){
                 if(move_uploaded_file($tmp_name,$target)){
-                    $stmt->execute([$name,$imgName]);
-                    echo '<script>alert("上傳成功!")</script>';
-                    header('refresh:0;url=index.php');
+                    return $imgName;
                 }else{
                     echo '上船錯誤';
                 }
